@@ -1,16 +1,23 @@
+// Import the functions you need from the SDKs you need
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-      apiKey: "AIzaSyA8upiMWQlMMP0W9uNaJhlI_fM__bfGAjs",
-      authDomain: "kwitter-9bac8.firebaseapp.com",
-      projectId: "kwitter-9bac8",
-      storageBucket: "kwitter-9bac8.appspot.com",
-      messagingSenderId: "152169948119",
-      appId: "1:152169948119:web:9e9b0fc6424632b43f6192",
-      measurementId: "G-K3229TP6M1"
-    };
-    
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
+  apiKey: "AIzaSyA8upiMWQlMMP0W9uNaJhlI_fM__bfGAjs",
+  authDomain: "kwitter-9bac8.firebaseapp.com",
+  projectId: "kwitter-9bac8",
+  storageBucket: "kwitter-9bac8.appspot.com",
+  messagingSenderId: "152169948119",
+  appId: "1:152169948119:web:9e9b0fc6424632b43f6192",
+  measurementId: "G-K3229TP6M1"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 function getData() {
       firebase.database().ref("/").on('value',
             function (snapshot) {
@@ -41,9 +48,6 @@ function logout() {
 
 function addroom() {
       room_name = localStorage.getItem("room_name");
-      firebase.database().ref("/").child(room_name).update({
-            purpose: "adding room name"
-      });
       localStorage.setItem("room_name", room_name);
 }
 
